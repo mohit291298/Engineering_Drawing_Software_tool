@@ -1,0 +1,4 @@
+<map id="plane" name="plane">
+<area shape="rect" id="node2" href="$classmyvector.html" title="{myvector\n||+ myvector()\l+ dotproduct()\l+ crossproduct()\l+ add()\l+ multiply()\l}" alt="" coords="5,175,123,311"/>
+<area shape="rect" id="node4" href="$classvertex3D.html" title="Class for representing a 3D labelled vertex The vertex has a label and 3 coordinates. " alt="" coords="147,197,277,289"/>
+</map>
