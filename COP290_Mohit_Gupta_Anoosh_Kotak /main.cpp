@@ -1,5 +1,9 @@
 #include <bits/stdc++.h>
-
+#include <main_computation.cpp>
+#include <Canvas_2D.cpp>
+#include <Canvas_3D.cpp>
+#include <Input_mode.cpp>
+#include <Output.cpp>
 using namespace std;
 
 /** @file */

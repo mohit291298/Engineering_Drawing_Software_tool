@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+#include <Input_mode.cpp>
+#include <main_computation.cpp>
 using namespace std;
 /** @file */
 

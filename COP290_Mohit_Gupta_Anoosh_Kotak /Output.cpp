@@ -1,4 +1,8 @@
 #include <bits/stdc++.h>
+#include <main_computation.cpp>
+#include <Canvas_3D.cpp>
+#include <Canvas_2D.cpp>
+
 using namespace std;
 /** @file */
 
