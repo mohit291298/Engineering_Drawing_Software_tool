@@ -1,0 +1,228 @@
+\hypertarget{classgraph2D}{}\section{graph2D Class Reference}
+\label{classgraph2D}\index{graph2D@{graph2D}}
+
+
+Class for 2D graph.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classgraph2D_a4702eac5247e6a9c9336b212b105dddf}{graph2D} (int s)
+\begin{DoxyCompactList}\small\item\em A Constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classgraph2D_a0bc80a8850d11d49722f30fd0081dc1e}{addvertex} (\hyperlink{classvertex2D}{vertex2D} $\ast$a)
+\begin{DoxyCompactList}\small\item\em A Member function which adds the arguement 2D vertex to the graph. \end{DoxyCompactList}\item 
+void \hyperlink{classgraph2D_a1ec89f9154f7a06ca9440c54114a5ae8}{addedge} (\hyperlink{classvertex2D}{vertex2D} $\ast$a, \hyperlink{classvertex2D}{vertex2D} $\ast$b, int c)
+\begin{DoxyCompactList}\small\item\em A Member function which adds an edge to graph. \end{DoxyCompactList}\item 
+int \hyperlink{classgraph2D_a49365267df78a75819ef8a8647a514d0}{indexis} (\hyperlink{classvertex2D}{vertex2D} $\ast$a)
+\begin{DoxyCompactList}\small\item\em A Member function which returns the index of the arguement vertex else -\/1. \end{DoxyCompactList}\item 
+bool \hyperlink{classgraph2D_a82180cab2d84b3ec314b9941a600227c}{isvertex} (\hyperlink{classvertex2D}{vertex2D} $\ast$a)
+\begin{DoxyCompactList}\small\item\em A Member function which tells if a vertex is in the graph or not. \end{DoxyCompactList}\item 
+bool \hyperlink{classgraph2D_a81175519185c21347127968da495ce75}{isedge} (\hyperlink{classvertex2D}{vertex2D} $\ast$a, \hyperlink{classvertex2D}{vertex2D} $\ast$b)
+\begin{DoxyCompactList}\small\item\em A Member function which tells if an edge is in the graph or not. \end{DoxyCompactList}\item 
+void \hyperlink{classgraph2D_a060f2ba8f4edbd896fafe5d4e7990b86}{make\+\_\+2\+Dgraph\+\_\+with\+\_\+vertices} (\hyperlink{classgraph3D}{graph3D} g, \hyperlink{classplane}{plane} p)
+\begin{DoxyCompactList}\small\item\em A Member function which adds the 2D graph(only vertices) corresponding to a given 3D graph and a projection plane. \end{DoxyCompactList}\item 
+void \hyperlink{classgraph2D_ae7f6f12a73326f7cbbaa3f87ea59c0ad}{join\+\_\+2\+D\+\_\+edges} (\hyperlink{classgraph3D}{graph3D} g)
+\begin{DoxyCompactList}\small\item\em A Member function which adds the corresponding edges in 2D graph(which has the projected vertices) w.\+r.\+t to a given 3D graph. \end{DoxyCompactList}\item 
+void \hyperlink{classgraph2D_a713850a586c412115558b9c34e0bef5a}{filter\+\_\+hidden\+\_\+lines} (\hyperlink{classgraph3D}{graph3D} g, \hyperlink{classplane}{plane} p)
+\begin{DoxyCompactList}\small\item\em A Member function filters hidden lines from the 2D graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for 2D graph. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classvertex2D}{vertex2D} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{graph2D@{graph2D}!graph2D@{graph2D}}
+\index{graph2D@{graph2D}!graph2D@{graph2D}}
+\subsubsection[{\texorpdfstring{graph2\+D(int s)}{graph2D(int s)}}]{\setlength{\rightskip}{0pt plus 5cm}graph2\+D\+::graph2D (
+\begin{DoxyParamCaption}
+\item[{int}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{classgraph2D_a4702eac5247e6a9c9336b212b105dddf}{}\label{classgraph2D_a4702eac5247e6a9c9336b212b105dddf}
+
+
+A Constructor. 
+
+The constructor constructs the graph with one arguement\+: an integer which is the size of graph. 
+\begin{DoxyParams}{Parameters}
+{\em s} & the number of vertices. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{graph2D@{graph2D}!addedge@{addedge}}
+\index{addedge@{addedge}!graph2D@{graph2D}}
+\subsubsection[{\texorpdfstring{addedge(vertex2\+D $\ast$a, vertex2\+D $\ast$b, int c)}{addedge(vertex2D *a, vertex2D *b, int c)}}]{\setlength{\rightskip}{0pt plus 5cm}void graph2\+D\+::addedge (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex2D} $\ast$}]{a, }
+\item[{{\bf vertex2D} $\ast$}]{b, }
+\item[{int}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{classgraph2D_a1ec89f9154f7a06ca9440c54114a5ae8}{}\label{classgraph2D_a1ec89f9154f7a06ca9440c54114a5ae8}
+
+
+A Member function which adds an edge to graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The end vertex of the edge to be added. \\
+\hline
+{\em b} & The other end vertex of the edge to be added. \\
+\hline
+{\em c} & An integer which is either 1(normal edge) or 2(hidden edge) or 0(no edge). \\
+\hline
+\end{DoxyParams}
+\index{graph2D@{graph2D}!addvertex@{addvertex}}
+\index{addvertex@{addvertex}!graph2D@{graph2D}}
+\subsubsection[{\texorpdfstring{addvertex(vertex2\+D $\ast$a)}{addvertex(vertex2D *a)}}]{\setlength{\rightskip}{0pt plus 5cm}void graph2\+D\+::addvertex (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex2D} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{classgraph2D_a0bc80a8850d11d49722f30fd0081dc1e}{}\label{classgraph2D_a0bc80a8850d11d49722f30fd0081dc1e}
+
+
+A Member function which adds the arguement 2D vertex to the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The 2D vertex to be added. \\
+\hline
+\end{DoxyParams}
+\index{graph2D@{graph2D}!filter\+\_\+hidden\+\_\+lines@{filter\+\_\+hidden\+\_\+lines}}
+\index{filter\+\_\+hidden\+\_\+lines@{filter\+\_\+hidden\+\_\+lines}!graph2D@{graph2D}}
+\subsubsection[{\texorpdfstring{filter\+\_\+hidden\+\_\+lines(graph3\+D g, plane p)}{filter_hidden_lines(graph3D g, plane p)}}]{\setlength{\rightskip}{0pt plus 5cm}void graph2\+D\+::filter\+\_\+hidden\+\_\+lines (
+\begin{DoxyParamCaption}
+\item[{{\bf graph3D}}]{g, }
+\item[{{\bf plane}}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{classgraph2D_a713850a586c412115558b9c34e0bef5a}{}\label{classgraph2D_a713850a586c412115558b9c34e0bef5a}
+
+
+A Member function filters hidden lines from the 2D graph. 
+
+This function will always be called after calling the make\+\_\+2\+D\+\_\+graph\+\_\+with\+\_\+vertices and join\+\_\+2\+D\+\_\+edges function. Here, first we convert the 2D coordinates of 2D graph into 3D vertex, then we see if the projected 3\+Dvertex and 3\+Dvertex are on same side of any face in face set. If yes, then edges from the vertex are done hidden. 
+\begin{DoxyParams}{Parameters}
+{\em g} & The 3D graph which contains the set of faces. \\
+\hline
+{\em p} & The projected plane \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classgraph2D_ae7f6f12a73326f7cbbaa3f87ea59c0ad}{join\+\_\+2\+D\+\_\+edges()} 
+
+\hyperlink{classgraph2D_a060f2ba8f4edbd896fafe5d4e7990b86}{make\+\_\+2\+Dgraph\+\_\+with\+\_\+vertices()} 
+\end{DoxySeeAlso}
+\index{graph2D@{graph2D}!indexis@{indexis}}
+\index{indexis@{indexis}!graph2D@{graph2D}}
+\subsubsection[{\texorpdfstring{indexis(vertex2\+D $\ast$a)}{indexis(vertex2D *a)}}]{\setlength{\rightskip}{0pt plus 5cm}int graph2\+D\+::indexis (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex2D} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{classgraph2D_a49365267df78a75819ef8a8647a514d0}{}\label{classgraph2D_a49365267df78a75819ef8a8647a514d0}
+
+
+A Member function which returns the index of the arguement vertex else -\/1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The 2D vertex. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index. 
+\end{DoxyReturn}
+\index{graph2D@{graph2D}!isedge@{isedge}}
+\index{isedge@{isedge}!graph2D@{graph2D}}
+\subsubsection[{\texorpdfstring{isedge(vertex2\+D $\ast$a, vertex2\+D $\ast$b)}{isedge(vertex2D *a, vertex2D *b)}}]{\setlength{\rightskip}{0pt plus 5cm}bool graph2\+D\+::isedge (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex2D} $\ast$}]{a, }
+\item[{{\bf vertex2D} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{classgraph2D_a81175519185c21347127968da495ce75}{}\label{classgraph2D_a81175519185c21347127968da495ce75}
+
+
+A Member function which tells if an edge is in the graph or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & One end of the edge to be checked. \\
+\hline
+{\em b} & Other end of the edge to be checked. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean type variable. 
+\end{DoxyReturn}
+\index{graph2D@{graph2D}!isvertex@{isvertex}}
+\index{isvertex@{isvertex}!graph2D@{graph2D}}
+\subsubsection[{\texorpdfstring{isvertex(vertex2\+D $\ast$a)}{isvertex(vertex2D *a)}}]{\setlength{\rightskip}{0pt plus 5cm}bool graph2\+D\+::isvertex (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex2D} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{classgraph2D_a82180cab2d84b3ec314b9941a600227c}{}\label{classgraph2D_a82180cab2d84b3ec314b9941a600227c}
+
+
+A Member function which tells if a vertex is in the graph or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The 2D vertex to be checked. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean type variable. 
+\end{DoxyReturn}
+\index{graph2D@{graph2D}!join\+\_\+2\+D\+\_\+edges@{join\+\_\+2\+D\+\_\+edges}}
+\index{join\+\_\+2\+D\+\_\+edges@{join\+\_\+2\+D\+\_\+edges}!graph2D@{graph2D}}
+\subsubsection[{\texorpdfstring{join\+\_\+2\+D\+\_\+edges(graph3\+D g)}{join_2D_edges(graph3D g)}}]{\setlength{\rightskip}{0pt plus 5cm}void graph2\+D\+::join\+\_\+2\+D\+\_\+edges (
+\begin{DoxyParamCaption}
+\item[{{\bf graph3D}}]{g}
+\end{DoxyParamCaption}
+)}\hypertarget{classgraph2D_ae7f6f12a73326f7cbbaa3f87ea59c0ad}{}\label{classgraph2D_ae7f6f12a73326f7cbbaa3f87ea59c0ad}
+
+
+A Member function which adds the corresponding edges in 2D graph(which has the projected vertices) w.\+r.\+t to a given 3D graph. 
+
+This function will always be called after calling the make\+\_\+2\+D\+\_\+graph\+\_\+with\+\_\+vertices function. 
+\begin{DoxyParams}{Parameters}
+{\em g} & The 3D graph though which edge are to be projected. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classgraph2D_a060f2ba8f4edbd896fafe5d4e7990b86}{make\+\_\+2\+Dgraph\+\_\+with\+\_\+vertices()} 
+\end{DoxySeeAlso}
+\index{graph2D@{graph2D}!make\+\_\+2\+Dgraph\+\_\+with\+\_\+vertices@{make\+\_\+2\+Dgraph\+\_\+with\+\_\+vertices}}
+\index{make\+\_\+2\+Dgraph\+\_\+with\+\_\+vertices@{make\+\_\+2\+Dgraph\+\_\+with\+\_\+vertices}!graph2D@{graph2D}}
+\subsubsection[{\texorpdfstring{make\+\_\+2\+Dgraph\+\_\+with\+\_\+vertices(graph3\+D g, plane p)}{make_2Dgraph_with_vertices(graph3D g, plane p)}}]{\setlength{\rightskip}{0pt plus 5cm}void graph2\+D\+::make\+\_\+2\+Dgraph\+\_\+with\+\_\+vertices (
+\begin{DoxyParamCaption}
+\item[{{\bf graph3D}}]{g, }
+\item[{{\bf plane}}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{classgraph2D_a060f2ba8f4edbd896fafe5d4e7990b86}{}\label{classgraph2D_a060f2ba8f4edbd896fafe5d4e7990b86}
+
+
+A Member function which adds the 2D graph(only vertices) corresponding to a given 3D graph and a projection plane. 
+
+Here we have taken the point(rp) in the plane as origin, so we get a 2D graph with asix (e1) and (e2). 
+\begin{DoxyParams}{Parameters}
+{\em g} & The 3D graph to be projected. \\
+\hline
+{\em p} & The plane on which it is to be projected. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classplane}{plane} 
+
+\hyperlink{classvertex3D}{vertex3D} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{main__computation_8cpp}{main\+\_\+computation.\+cpp}\end{DoxyCompactItemize}
