@@ -41,11 +41,20 @@ int main(int argc, char *argv[])
         graph3D g2(num);
         string l;
         float x,y,z;
+        float min_x = 0;
+        float min_y = 0;
+        float min_z = 0;
         for(int i=0;i<num;i++){
             infile>>l;
             infile>>x;
             infile>>y;
             infile>>z;
+            if(x<min_x)
+                min_x=x;
+            if(y<min_y)
+                min_y=y;
+            if(z<min_z)
+                min_z=z;            
             vertex3D* v= new vertex3D(l,x,y,z);
             g2.addvertex(v);
         }
@@ -94,6 +103,10 @@ int main(int argc, char *argv[])
         generate_orthographic_projections(&o11,&o21,&o31,&g2);
         vertex2D* v1;
         vertex2D* v2;
+        float flag1_x;
+        float flag1_y;
+        float flag2_x;
+        float flag2_y;
         for(int i=0;i<o11.size;i++){
             for(int j=i;j<o11.size;j++){
                 if(o11.edges[i][j]!=0){
@@ -102,7 +115,24 @@ int main(int argc, char *argv[])
                     }
                     v1 = o11.vertices[i];
                     v2 = o11.vertices[j];
-                    p.drawLine(100*v1->x, -100*(v1->y ), 100*v2->x , -100*(v2->y));
+                    if(min_x<0.1){
+                        flag1_x = v1->x -min_x +0.1;
+                        flag2_x = v2->x - min_x +0.1;
+                    }
+                    else{
+                        flag1_x = v1->x +0.1;
+                        flag2_x = v2->x +0.1;
+                    }
+                    if(min_y<0.1){
+                        flag1_y = v1->y -min_y +0.1;
+                        flag2_y = v2->y - min_y +0.1;
+                    }
+                    else{
+                        flag1_y = v1->y +0.1;
+                        flag2_y = v2->y +0.1;
+                    }
+
+                        p.drawLine(100*flag1_x, -100*(flag1_y ), 100*flag2_x , -100*(flag2_y));
                        p.setPen(QPen(Qt::black, 2, Qt::SolidLine, Qt::RoundCap));
                 }
             }
@@ -113,10 +143,25 @@ int main(int argc, char *argv[])
                     if(o21.edges[i][j]==2){
                            p.setPen(QPen(Qt::black, 2, Qt::DashDotLine, Qt::RoundCap));
                     }
-
                     v1 = o21.vertices[i];
                     v2 = o21.vertices[j];
-                    p.drawLine(-100*(v1->x), 100*(v1->y), -100*(v2->x), 100*(v2->y));
+                    if(min_y<0.1){
+                        flag1_x = v1->x -min_y +0.1;
+                        flag2_x = v2->x - min_y +0.1;
+                    }
+                    else{
+                        flag1_x = v1->x +0.1;
+                        flag2_x = v2->x +0.1;
+                    }
+                    if(min_z<0.1){
+                        flag1_y = v1->y -min_z +0.1;
+                        flag2_y = v2->y - min_z +0.1;
+                    }
+                    else{
+                        flag1_y = v1->y +0.1;
+                        flag2_y = v2->y +0.1;
+                    }
+                    p.drawLine(-100*(flag1_x), 100*(flag1_y), -100*(flag2_x), 100*(flag2_y));
                        p.setPen(QPen(Qt::black, 2, Qt::SolidLine, Qt::RoundCap));
                 }
             }
@@ -129,7 +174,24 @@ int main(int argc, char *argv[])
                     }
                     v1 = o31.vertices[i];
                     v2 = o31.vertices[j];
-                    p.drawLine(100*v1->y, 100*(v1->x), 100*v2->y, 100*(v2->x));
+                    if(min_z<0.1){
+                        flag1_x = v1->x -min_z +0.1;
+                        flag2_x = v2->x - min_z +0.1;
+                    }
+                    else{
+                        flag1_x = v1->x +0.1;
+                        flag2_x = v2->x +0.1;
+                    }
+                    if(min_x<0.1){
+                        flag1_y = v1->y -min_x +0.1;
+                        flag2_y = v2->y - min_x +0.1;
+                    }
+                    else{
+                        flag1_y = v1->y +0.1;
+                        flag2_y = v2->y +0.1;
+                    }
+
+                    p.drawLine(100*flag1_y, 100*(flag1_x), 100*flag2_y, 100*(flag2_x));
                        p.setPen(QPen(Qt::black, 2, Qt::SolidLine, Qt::RoundCap));
                 }
             }
