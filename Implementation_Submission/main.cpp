@@ -66,8 +66,24 @@ int main(int argc, char *argv[])
     }
     infile>>STRING;
     if(STRING=="1"){
-    p.drawLine(-800, 0, 800, 0);
-    p.drawLine(0, -600, 0, 600);
+        
+        p.setPen(QPen(Qt::black, 3, Qt::SolidLine, Qt::RoundCap));
+        p.drawLine(-800, 0, 800, 0);
+        p.drawLine(0, -515, 0, 515);
+        p.setPen(QPen(Qt::black, 5, Qt::SolidLine, Qt::RoundCap));
+        p.drawLine(-800, -515, 800, -515);
+        p.drawLine(-800, 515, 800, 515);
+        p.drawLine(-800, -515, -800, 515);
+        p.drawLine(800, -515, 800, 515);
+        p.setPen(QPen(Qt::red, 4, Qt::SolidLine, Qt::RoundCap));
+        QString view1 = QString::fromStdString("Front View");
+        p.drawText(710, 500, view1);
+        view1 = QString::fromStdString("Top View");
+        p.drawText(720, -495, view1);
+        view1 = QString::fromStdString("Side View");
+        p.drawText(-790, 500, view1);
+
+        p.setPen(QPen(Qt::black, 2.5, Qt::SolidLine, Qt::RoundCap));
         
         int num;
         infile>>num;
@@ -544,6 +560,15 @@ int main(int argc, char *argv[])
     }
     }
     else if(STRING=="2"){
+        p.setPen(QPen(Qt::transparent, 0, Qt::SolidLine, Qt::RoundCap));
+        p.drawLine(-800, 0, 800, 0);
+        p.drawLine(0, -515, 0, 515);
+        p.setPen(QPen(Qt::black, 5, Qt::SolidLine, Qt::RoundCap));
+        p.drawLine(-800, -515, 800, -515);
+        p.drawLine(-800, 515, 800, 515);
+        p.drawLine(-800, -515, -800, 515);
+        p.drawLine(800, -515, 800, 515);
+
         int num;
         infile>>num;
         graph2D h1(num);
@@ -630,16 +655,22 @@ int main(int argc, char *argv[])
 
         vertex2D* v1;
         vertex2D* v2;
+        p.setPen(QPen(Qt::black, 2.5, Qt::SolidLine, Qt::RoundCap));
         for(int i=0;i<cdef.size;i++){
             for(int j=i;j<cdef.size;j++){
                 if(cdef.edges[i][j]!=0){
                     if(cdef.edges[i][j]==2){
-                           p.setPen(QPen(Qt::black, 2, Qt::DashDotLine, Qt::RoundCap));
+                           p.setPen(QPen(Qt::black, 2.5, Qt::DashDotLine, Qt::RoundCap));
                     }
                     v1 = cdef.vertices[i];
                     v2 = cdef.vertices[j];
                     p.drawLine(100*v1->x, -100*(v1->y ), 100*v2->x, -100*(v2->y));
-                                          p.setPen(QPen(Qt::black, 2, Qt::SolidLine, Qt::RoundCap));
+                    p.setPen(QPen(Qt::blue, 2, Qt::DashDotLine, Qt::RoundCap));
+                    QString coo = QString::fromStdString(v1->label);
+                    p.drawText(100*v1->x + 5, -100*(v1->y ) - 5, coo);
+                    coo = QString::fromStdString(v2->label);
+                    p.drawText(100*v2->x + 5, -100*(v2->y ) - 5, coo);
+                    p.setPen(QPen(Qt::black, 2.5, Qt::SolidLine, Qt::RoundCap));
                 }
             }
         }
