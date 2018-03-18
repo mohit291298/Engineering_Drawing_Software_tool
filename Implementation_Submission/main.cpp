@@ -13,6 +13,7 @@
 #include <QtCore>
 #include <QtGui>
 #include <QString>
+#include <map>
 
 using namespace Qt;
 #define PI 3.14159265
@@ -31,7 +32,7 @@ int main(int argc, char *argv[])
    QPainter p(&pi);
 
    p.setRenderHint(QPainter::Antialiasing);
-   p.setPen(QPen(Qt::black, 2, Qt::SolidLine, Qt::RoundCap));
+   p.setPen(QPen(Qt::black, 2.5, Qt::SolidLine, Qt::RoundCap));
     // p.drawLine(-800, 0, 800, 0);
     // p.drawLine(0, -600, 0, 600);
    cout<<"\n"<<"***************            FILE SPECIFICATION            *******************\n"<<"Enter 1(for 3D to 2D) or 2(for 2D to 3D) in the first line.\n";
@@ -208,9 +209,15 @@ int main(int argc, char *argv[])
         }
 
     if(str=="1"){
-            graph2D o11(g2.size);
-    graph2D o21(g2.size);
-    graph2D o31(g2.size);
+        std::map<string, float> map1_xy;
+        std::map<string, float> map2_xy;
+        std::map<string, float> map1_yz;
+        std::map<string, float> map2_yz;
+        std::map<string, float> map1_zx;
+        std::map<string, float> map2_zx;
+        graph2D o11(g2.size);
+        graph2D o21(g2.size);
+        graph2D o31(g2.size);
         generate_orthographic_projections(&o11,&o21,&o31,&g2);
         vertex2D* v1;
         vertex2D* v2;
@@ -273,15 +280,19 @@ int main(int argc, char *argv[])
         }
         for(int i=0;i<avx.size();i++){
             if(avx[i].hl==2){
-                   p.setPen(QPen(Qt::black, 2, Qt::DashDotLine, Qt::RoundCap));
+                   p.setPen(QPen(Qt::black, 2.5, Qt::DashDotLine, Qt::RoundCap));
             }
             p.drawLine(avx[i].e,flag_max_y + flag_min_y - avx[i].b ,avx[i].c ,flag_max_y + flag_min_y - avx[i].d );
-           p.setPen(QPen(Qt::blue, 2, Qt::SolidLine, Qt::RoundCap));
+            map1_xy[avx[i].f] = avx[i].e;
+            map2_xy[avx[i].f] = flag_max_y + flag_min_y - avx[i].b;
+            map1_xy[avx[i].g] = avx[i].c;
+            map2_xy[avx[i].g] = flag_max_y + flag_min_y - avx[i].d;
+           p.setPen(QPen(Qt::blue, 2.5, Qt::SolidLine, Qt::RoundCap));
              QString lab1 = QString::fromStdString(avx[i].f);
               QString lab2 = QString::fromStdString(avx[i].g);
             p.drawText(avx[i].e + 5, flag_max_y + flag_min_y - avx[i].b - 5, lab1);
              p.drawText(avx[i].c + 5, flag_max_y + flag_min_y - avx[i].d - 5, lab2);
-             p.setPen(QPen(Qt::black, 2, Qt::SolidLine, Qt::RoundCap));
+             p.setPen(QPen(Qt::black, 2.5, Qt::SolidLine, Qt::RoundCap));
         }
         std::vector< avvertex > avy;
         flag_min_y = 0.0;
@@ -340,15 +351,20 @@ int main(int argc, char *argv[])
         }
         for(int i=0;i<avy.size();i++){
             if(avy[i].hl==2){
-                   p.setPen(QPen(Qt::black, 2, Qt::DashDotLine, Qt::RoundCap));
+                   p.setPen(QPen(Qt::black, 2.5, Qt::DashDotLine, Qt::RoundCap));
             }
             p.drawLine(-avy[i].b,flag_max_y + flag_min_y - avy[i].e ,-avy[i].d ,flag_max_y + flag_min_y - avy[i].c );
-           p.setPen(QPen(Qt::blue, 2, Qt::SolidLine, Qt::RoundCap));
+            map1_yz[avy[i].f] = -avy[i].b;
+            map2_yz[avy[i].f] = flag_max_y + flag_min_y - avy[i].e;
+            map1_yz[avy[i].g] = -avy[i].d;
+            map2_yz[avy[i].g] = flag_max_y + flag_min_y - avy[i].c;
+
+           p.setPen(QPen(Qt::blue, 2.5, Qt::SolidLine, Qt::RoundCap));
              QString lab1 = QString::fromStdString(avy[i].f);
              QString lab2 = QString::fromStdString(avy[i].g);
             p.drawText(-avy[i].b - 5, flag_max_y + flag_min_y - avy[i].e - 5, lab1);
             p.drawText(-avy[i].d - 5, flag_max_y + flag_min_y - avy[i].c - 5, lab2);
-            p.setPen(QPen(Qt::black, 2, Qt::SolidLine, Qt::RoundCap));
+            p.setPen(QPen(Qt::black, 2.5, Qt::SolidLine, Qt::RoundCap));
         }
         std::vector< avvertex > avz;
         flag_min_y = 0.0;
@@ -408,15 +424,27 @@ int main(int argc, char *argv[])
         }
         for(int i=0;i<avz.size();i++){
             if(avz[i].hl==2){
-                   p.setPen(QPen(Qt::black, 2, Qt::DashDotLine, Qt::RoundCap));
+                   p.setPen(QPen(Qt::black, 2.5, Qt::DashDotLine, Qt::RoundCap));
             }
             p.drawLine(avz[i].e,-flag_max_y - flag_min_y + avz[i].b ,avz[i].c ,-flag_max_y - flag_min_y + avz[i].d );
-           p.setPen(QPen(Qt::blue, 2, Qt::SolidLine, Qt::RoundCap));
+            map1_zx[avz[i].f] = avz[i].e;
+            map2_zx[avz[i].f] = -flag_max_y - flag_min_y + avz[i].b;
+            map1_zx[avz[i].g] = avz[i].c ;
+            map2_zx[avz[i].g] = -flag_max_y - flag_min_y + avz[i].d;
+
+           p.setPen(QPen(Qt::blue, 2.5, Qt::SolidLine, Qt::RoundCap));
              QString lab1 = QString::fromStdString(avz[i].f);
              QString lab2 = QString::fromStdString(avz[i].g);
             p.drawText(avz[i].e + 5, -flag_max_y - flag_min_y + avz[i].b + 5, lab1);
             p.drawText(avz[i].c + 5, -flag_max_y - flag_min_y + avz[i].d + 5, lab2);
-            p.setPen(QPen(Qt::black, 2, Qt::SolidLine, Qt::RoundCap));
+            p.setPen(QPen(Qt::black, 2.5, Qt::SolidLine, Qt::RoundCap));
+        }
+        p.setPen(QPen(Qt::black, 0.5, Qt::DashDotLine, Qt::RoundCap));
+        string corres;
+        for(int i=0;i<num;i++){
+            corres = g2.vertices[i]->label;
+            p.drawLine(map1_xy[corres],map2_xy[corres],map1_yz[corres],map2_yz[corres]);
+            p.drawLine(map1_xy[corres],map2_xy[corres],map1_zx[corres],map2_zx[corres]);
         }
 
         cout<<"Here's the x-y projection\n";
